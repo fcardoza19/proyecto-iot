@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AdminLTE 2 | Primer Piso Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Bootstrap 3.3.2 -->
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- AdminLTE Theme -->
+    <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        body {
+            background-color: #ecf0f5; /* Color inicial del fondo */
+            color: #333333; /* Gris oscuro para el texto */
+        }
+
+        .main-header .logo {
+            background-color: #3c8dbc; /* Azul original */
+            color: #ffffff;
+        }
+
+        .main-header .navbar {
+            background-color: #3c8dbc; /* Azul original */
+        }
+
+        .sidebar {
+            background-color: #222d32; /* Gris oscuro original */
+        }
+
+        .sidebar-menu > li.header {
+            color: #ffffff;
+            background-color: #1a2226; /* Gris muy oscuro */
+        }
+
+        .content-wrapper {
+            background-color: #ecf0f5; /* Color inicial del fondo */
+        }
+
+        .box-primary {
+            border-top-color: #3c8dbc; /* Azul original */
+        }
+
+        .btn-default {
+            background-color: #d2d6de; /* Gris claro */
+            color: #444;
+            font-size: 1em; /* Tamaño de fuente original */
+            padding: 6px 12px; /* Tamaño de botón original */
+        }
+
+        .user-panel > .info > a {
+            color: #ffffff;
+        }
+
+        .navbar-custom-menu .nav > li > a {
+            color: #ffffff;
+        }
+
+        .sidebar-menu li.active > a {
+            background-color: #1e282c; /* Azul oscuro original */
+            color: #ffffff;
+        }
+
+        .sidebar-menu li > a:hover {
+            background-color: #1e282c;
+            color: #ffffff;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 28px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 28px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #3c8dbc; /* Azul original */
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(32px);
+        }
+
+        /* Ajustes para los componentes del sensor */
+        .control-section {
+            margin: 20px 0;
+        }
+
+        .control-box {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .control-box h4 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        #pir-status,
+        #ldr-status {
+            background-color: #3c8dbc; /* Azul original */
+            color: #ffffff;
+            font-size: 1.2em;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body class="skin-blue">
+    <div class="wrapper">
+        <!-- Main Header -->
+        <header class="main-header">
+            <a href="../../index2.html" class="logo"><b>Domótica</b>FIEE</a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Botón para mostrar/ocultar el menú lateral -->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <!-- Menú de usuario y notificaciones -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Notificaciones -->
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="label label-warning">10</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">Tienes 10 notificaciones</li>
+                                <li>
+                                    <ul class="menu">
+                                        <li><a href="#"><i class="fa fa-users text-aqua"></i> 5 nuevos miembros hoy</a></li>
+                                        <!-- Más ejemplos de notificaciones -->
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">Ver todas</a></li>
+                            </ul>
+                        </li>
+                        <!-- Usuario -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="../../dist/img/USUARIO_FIEE.jpg" class="user-image" alt="User Image" />
+                                <span class="hidden-xs">Edificio FIEE</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- Imagen del usuario -->
+                                <li class="user-header">
+                                    <img src="../../dist/img/USUARIO_FIEE.jpg" class="img-circle" alt="User Image" />
+                                    <p>Edificio FIEE <small>Desde abril 2024</small></p>
+                                </li>
+                                <!-- Opción de perfil y cierre de sesión -->
+                                <li class="user-footer">
+                                    <div class="pull-left"><a href="#" class="btn btn-default btn-flat">Perfil</a></div>
+                                    <div class="pull-right"><a href="#" class="btn btn-default btn-flat">Cerrar sesión</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <!-- Panel de usuario -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="../../dist/img/USUARIO_FIEE.jpg" class="img-circle" alt="User Image" />
+                    </div>
+                    <div class="pull-left info">
+                        <p>Edificio FIEE</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+
+                <!-- Buscador lateral -->
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Buscar..." />
+                        <span class="input-group-btn">
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+
+                <!-- Menú lateral -->
+                <ul class="sidebar-menu">
+                    <li class="header">NAVEGACIÓN PRINCIPAL</li>
+                    <li><a href="../../index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                    <li class="treeview active">
+                        <a href="#">
+                            <i class="fa fa-pie-chart"></i> <span>Pisos</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href="PrimerPiso.html"><i class="fa fa-circle-o"></i>Primer Piso</a></li>
+                            <li><a href="SegundoPiso.html"><i class="fa fa-circle-o"></i>Segundo Piso</a></li>
+                            <li><a href="TercerPiso.html"><i class="fa fa-circle-o"></i>Tercer Piso</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../charts/Escenas.html"><i class="fa fa-laptop"></i> <span>Escenas</span></a></li>
+                    <li><a href="../calendar.html"><i class="fa fa-calendar"></i> <span>Calendario</span><small class="label pull-right bg-red">3</small></a></li>
+                    <li class="header">ETIQUETAS</li>
+                    <li><a href="#"><i class="fa fa-circle-o text-danger"></i>Importante</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-warning"></i>Urgente</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-info"></i>Información</a></li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <section class="content-header">
+                <h1>Control del Primer Piso</h1>
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <!-- Cuadro principal para controlar el LED y sensores -->
+                <div class="control-section">
+                    <!-- Control del LED -->
+                    <div class="control-box">
+                        <h4>Control del LED</h4>
+                        <label class="switch">
+                            <input type="checkbox" id="led-switch">
+                            <span class="slider round"></span>
+                        </label>
+                        <p id="led-status-text" style="font-size: 1.2em;">Estado del LED: Cargando...</p>
+                    </div>
+
+                    <!-- Estado del PIR -->
+                    <div class="control-box">
+                        <h4>Sensor PIR</h4>
+                        <div id="pir-status" style="height: 100px; line-height: 100px;">Cargando...</div>
+                    </div>
+
+                    <!-- Estado del LDR -->
+                    <div class="control-box">
+                        <h4>Sensor LDR</h4>
+                        <div id="ldr-status" style="height: 100px; line-height: 100px;">Cargando...</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Versión</b> 2.0
+            </div>
+            <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> Todos los derechos reservados.
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jQuery/jQuery-2.1.3.min.js"></script>
+
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/app.min.js"></script>
+
+    <!-- Lógica personalizada -->
+    <script src="../../dist/js/controlPiso.js"></script>
+</body>
+
+</html>

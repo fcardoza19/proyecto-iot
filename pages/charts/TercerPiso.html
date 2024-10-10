@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AdminLTE 2 | Dashboard</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- Bootstrap 3.3.2 -->
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons (si no las usas, puedes eliminarlas) -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Tema principal -->
+    <link href="../../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- Pieles (puedes eliminar esta línea si no usas múltiples pieles) -->
+    <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Compatibilidad con IE9 o inferior (elimínalo si no necesitas soporte para IE9) -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="skin-blue">
+    <div class="wrapper">
+      
+      <!-- Encabezado -->
+      <header class="main-header">
+        <a href="../../index2.html" class="logo"><b>Domótica</b>FIEE</a>
+        <nav class="navbar navbar-static-top" role="navigation">
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <!-- Menú personalizado -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+
+              <!-- Notificaciones -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">10</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">Tienes 10 notificaciones</li>
+                  <li>
+                    <ul class="menu">
+                      <li>
+                        <a href="#"><i class="fa fa-users text-aqua"></i> 5 nuevos miembros se han unido hoy</a>
+                      </li>
+                      <!-- Más notificaciones -->
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">Ver todas</a></li>
+                </ul>
+              </li>
+              <!-- Cuenta de usuario -->
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="../../dist/img/USUARIO_FIEE.jpg" class="user-image" alt="User Image"/>
+                  <span class="hidden-xs">Edificio FIEE</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- Información de usuario -->
+                  <li class="user-header">
+                    <img src="../../dist/img/USUARIO_FIEE.jpg" class="img-circle" alt="User Image" />
+                    <p>Edificio FIEE <small>Desde abril 2024</small></p>
+                  </li>
+                  <!-- Menú -->
+                  <li class="user-body">
+                    <div class="col-xs-4 text-center"><a href="#">Seguidores</a></div>
+                    <div class="col-xs-4 text-center"><a href="#">Ventas</a></div>
+                    <div class="col-xs-4 text-center"><a href="#">Amigos</a></div>
+                  </li>
+                  <!-- Cierre de sesión -->
+                  <li class="user-footer">
+                    <div class="pull-left"><a href="#" class="btn btn-default btn-flat">Perfil</a></div>
+                    <div class="pull-right"><a href="#" class="btn btn-default btn-flat">Cerrar sesión</a></div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Menú lateral -->
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <!-- Panel de usuario -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="../../dist/img/USUARIO_FIEE.jpg" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+              <p>Edificio FIEE</p>
+              <a href="#"><i class="fa fa-circle text-success"></i> En línea</a>
+            </div>
+          </div>
+
+          <!-- Barra de búsqueda -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Buscar..."/>
+              <span class="input-group-btn">
+                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+
+          <!-- Menú de navegación -->
+          <ul class="sidebar-menu">
+            <li class="header">NAVEGACIÓN PRINCIPAL</li>
+            <li><a href="../../index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li class="treeview active">
+              <a href="#"><i class="fa fa-pie-chart"></i> <span>Pisos</span><i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="PrimerPiso.html"><i class="fa fa-circle-o"></i> Primer Piso</a></li>
+                <li><a href="SegundoPiso.html"><i class="fa fa-circle-o"></i> Segundo Piso</a></li>
+                <li class="active"><a href="TercerPiso.html"><i class="fa fa-circle-o"></i> Tercer Piso</a></li>
+              </ul>
+            </li>
+            <li><a href="Escenas.html"><i class="fa fa-laptop"></i> <span>Escenas</span></a></li>
+            <li><a href="../calendar.html"><i class="fa fa-calendar"></i> <span>Calendario</span><small class="label pull-right bg-red">3</small></a></li>
+            <li class="header">ETIQUETAS</li>
+            <li><a href="#"><i class="fa fa-circle-o text-danger"></i> Importante</a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Urgente</a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-info"></i> Información</a></li>
+          </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Contenido principal -->
+      <div class="content-wrapper">
+        <!-- Encabezado de la página -->
+        <section class="content-header">
+          <h1>
+            SECCIÓN DE CONTROL TERCER PISO
+            <small></small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li class="active">Tercer Piso</li>
+          </ol>
+        </section>
+
+ <!-- Contenido principal -->
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-solid">
+        <div class="box-header">
+          <i class="fa fa-lightbulb-o"></i>
+          <h3 class="box-title">Control del LED RGB y Sensores</h3>
+          <div class="box-tools pull-right">
+            <button class="btn btn-default btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button class="btn btn-default btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <!-- Control del LED RGB -->
+            <div class="col-md-6 col-sm-12 text-center">
+              <h4>Control del LED RGB</h4>
+              <div class="rgb-control">
+                <label for="red">Rojo:</label>
+                <input type="range" id="red" name="red" min="0" max="255">
+                <label for="green">Verde:</label>
+                <input type="range" id="green" name="green" min="0" max="255">
+                <label for="blue">Azul:</label>
+                <input type="range" id="blue" name="blue" min="0" max="255">
+              </div>
+            </div>
+
+            <!-- Estado del sensor LDR -->
+            <div class="col-md-3 col-sm-6 text-center">
+              <h4>Sensor LDR</h4>
+              <div id="ldr-status" class="sensor-control">Estado del LDR: Cargando...</div>
+            </div>
+
+            <!-- Estado del sensor PIR -->
+            <div class="col-md-3 col-sm-6 text-center">
+              <h4>Sensor PIR</h4>
+              <div id="pir-status" class="sensor-control">Estado del PIR: Cargando...</div>
+            </div>
+          </div><!-- /.row -->
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</section><!-- /.content -->
+
+    <!-- Scripts JS (considera eliminar los que no uses) -->
+    <script src="../../plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src='../../plugins/fastclick/fastclick.min.js'></script>
+    <script src="../../dist/js/app.min.js" type="text/javascript"></script>
+    <script src="../../dist/js/demo.js" type="text/javascript"></script>
+    <script src="../../plugins/knob/jquery.knob.js" type="text/javascript"></script>
+    <script src="../../plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+  </body>
+</html>
