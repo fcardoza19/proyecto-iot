@@ -15,7 +15,8 @@ def create_connection():
             host="server-iot.mysql.database.azure.com",
             user="admin_iot",
             password="Focm1903",
-            database="db_iot"
+            database="db_iot",
+            ssl_ca="/home/site/wwwroot/DigiCertGlobalRootCA.crt.pem"  # Ruta del certificado SSL
         )
         if connection.is_connected():
             return connection
