@@ -1,7 +1,7 @@
 // Función para actualizar el estado de los sensores (nivel de agua, metal detectado, temperatura) y los LEDs
 function actualizarEstado() {
     // Obtener el estado de los sensores desde la API para ESP32_02
-    fetch('http://127.0.0.1:5000/api/getlateststatus?esp_id=ESP32_02')  // Incluye el esp_id en la URL
+    fetch('http://4.227.157.228:8000/api/getlateststatus?esp_id=ESP32_02')  // Incluye el esp_id en la URL
         .then(response => response.json())
         .then(data => {
             console.log("Datos obtenidos:", data); // Verificar datos en la consola
@@ -26,7 +26,7 @@ function actualizarEstado() {
         });
 
     // Obtener el estado actual de los LEDs desde la API
-    fetch('http://127.0.0.1:5000/api/getledstatus?esp_id=ESP32_02')  // Incluye el esp_id en la URL
+    fetch('http://4.227.157.228:8000/api/getledstatus?esp_id=ESP32_02')  // Incluye el esp_id en la URL
         .then(response => response.json())
         .then(data => {
             console.log("Estado de los LEDs:", data); // Verificar estado de los LEDs en la consola
