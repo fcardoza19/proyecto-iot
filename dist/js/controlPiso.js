@@ -1,7 +1,7 @@
 // Función para actualizar el estado de los sensores (PIR y LDR) y el LED
 function actualizarEstado() {
     // Obtener el estado del PIR y LDR desde la API
-    fetch('http://127.0.0.1:5000/api/getlateststatus?esp_id=ESP32_01')  // Incluye el esp_id en la URL
+    fetch('http://4.227.157.228:8000/api/getlateststatus?esp_id=ESP32_01')  // Incluye el esp_id en la URL
         .then(response => response.json())
         .then(data => {
             console.log("Datos obtenidos:", data); // Verificar datos en la consola
@@ -23,7 +23,7 @@ function actualizarEstado() {
         });
 
     // Obtener el estado actual del LED desde la API
-    fetch('http://127.0.0.1:5000/api/getledstatus?esp_id=ESP32_01')  // Incluye el esp_id en la URL
+    fetch('http://4.227.157.228:8000/api/getledstatus?esp_id=ESP32_01')  // Incluye el esp_id en la URL
         .then(response => response.json())
         .then(data => {
             console.log("Estado del LED:", data); // Verificar estado del LED en la consola
